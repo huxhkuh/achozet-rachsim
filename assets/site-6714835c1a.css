@@ -93,3 +93,27 @@ nav{font-size:15px;gap:20px}
  .build-reveal.is-ready .build-reveal-sketch{opacity:0}
 }
 @media print{.build-reveal{display:none}}
+
+/* Architectural details: split primary action, drawn underline, open corners. */
+.btn{transform:none!important}
+.architect-arrow{width:25px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:square;stroke-linejoin:miter;transition:transform .25s ease}
+.btn:hover .architect-arrow,.project-open:hover .architect-arrow{transform:translateX(-3px)}
+.hero-buttons{align-items:center;gap:25px}
+.hero-buttons .btn-split{padding:0;border:0;gap:0;justify-content:space-between;background:#855033;color:#fff;min-height:54px}
+.btn-split-label{padding:13px 23px}
+.btn-split-icon{align-self:stretch;display:grid;place-items:center;width:54px;background:#633d2a;border-inline-start:1px solid #ffffff30;transition:width .25s,background .25s}
+.hero-buttons .btn-split:hover{background:#75442c}
+.btn-split:hover .btn-split-icon{width:62px;background:#553221}
+.hero-buttons .btn-line{position:relative;min-height:48px;padding:10px 0;border:0;background:transparent;color:var(--accent)}
+.hero-buttons .btn-line::after{content:"";position:absolute;right:0;bottom:3px;width:28px;height:1px;background:currentColor;transition:width .3s ease}
+.hero-buttons .btn-line:hover,.hero-buttons .btn-line:focus-visible{background:transparent;color:var(--ink)}
+.hero-buttons .btn-line:hover::after,.hero-buttons .btn-line:focus-visible::after{width:100%}
+.header-contact .btn-architect{position:relative;border:0;background:transparent;color:var(--accent);min-height:48px;padding:12px 24px;transition:background .25s,color .25s}
+.btn-architect::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(currentColor,currentColor) left top,linear-gradient(currentColor,currentColor) right top,linear-gradient(currentColor,currentColor) left bottom,linear-gradient(currentColor,currentColor) right bottom,linear-gradient(currentColor,currentColor) left top,linear-gradient(currentColor,currentColor) right top,linear-gradient(currentColor,currentColor) left bottom,linear-gradient(currentColor,currentColor) right bottom;background-repeat:no-repeat;background-size:14px 1px,14px 1px,14px 1px,14px 1px,1px 12px,1px 12px,1px 12px,1px 12px;transition:background-size .3s}
+.header-contact .btn-architect:hover,.header-contact .btn-architect:focus-visible{background:var(--accent);color:white}
+.btn-architect:hover::before,.btn-architect:focus-visible::before{background-size:51% 1px,51% 1px,51% 1px,51% 1px,1px 51%,1px 51%,1px 51%,1px 51%}
+.phone-icon{width:42px;height:46px;border-radius:21px 21px 0 0;border-color:var(--accent);transition:background .25s,color .25s}
+.phone-icon:hover,.phone-icon:focus-visible{background:var(--accent);color:#fff}
+@media(max-width:760px){.hero-buttons{gap:20px}.hero-buttons .btn-split{padding:0}.hero-buttons .btn-line{padding:10px 0}.btn-split-label{padding:13px 17px}.btn-split-icon{width:48px}.btn-split:hover .btn-split-icon{width:48px}}
+@media(prefers-reduced-motion:reduce){.btn-split:hover .btn-split-icon{width:54px}.architect-arrow{transform:none!important}}
+@media(prefers-reduced-motion:reduce) and (max-width:760px){.btn-split:hover .btn-split-icon{width:48px}}
