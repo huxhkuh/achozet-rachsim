@@ -26,7 +26,7 @@ dialog{padding:0;border:1px solid var(--line);background:var(--paper);color:var(
 
 .hero h1{font-size:clamp(44px,4.1vw,59px)}@media(max-width:1100px){.hero h1{font-size:49px}}@media(max-width:760px){.hero h1{font-size:clamp(30px,9.3vw,40px)}}
 
-.form-trap{position:absolute;width:1px;height:1px;min-height:0;padding:0;border:0;clip-path:inset(50%);overflow:hidden;opacity:0;pointer-events:none}.form-status[data-state="success"]{color:#315b37}.form-status[data-state="error"]{color:#98362f}.form-bottom a{text-decoration:underline}.btn:disabled{opacity:.65;transform:none;cursor:wait}
+.form-status[data-state="success"]{color:#315b37}.form-status[data-state="error"]{color:#98362f}.form-bottom a{text-decoration:underline}.btn:disabled{opacity:.65;transform:none;cursor:wait}
 /* Comfortable text sizes across desktop and mobile, with stronger secondary text. */
 :root{--muted:#535c4f;--accent:#855033}
 .about-text p,.activity-copy>p,.feature-copy>p,.contact-copy>p,.modal-content>p{font-size:17px;line-height:1.85}

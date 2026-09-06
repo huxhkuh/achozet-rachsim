@@ -35,6 +35,8 @@ contactForm.addEventListener('submit',async e=>{
  name.setCustomValidity(name.value.trim()?'':'נא להזין שם מלא');
  if(!contactForm.reportValidity())return;
  const data=new FormData(contactForm);data.set('name',name.value.trim());
+ // Do not submit a legacy honeypot: browser autofill can populate it for real visitors.
+ data.delete('_gotcha');
  if(!String(data.get('email')||'').trim())data.delete('email');
  const reference=Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,6);
  data.set('reference',reference);
