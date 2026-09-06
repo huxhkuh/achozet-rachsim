@@ -23,6 +23,11 @@ document.getElementById('modal-contact').addEventListener('click',()=>{dialog.cl
 document.querySelectorAll('[data-interest]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('interest').value=a.dataset.interest}));
 document.getElementById('privacy-open').addEventListener('click',()=>openDialog(document.getElementById('privacy-dialog')));
 const contactForm=document.getElementById('contact-form');
+contactForm.addEventListener('invalid',e=>{
+ const status=document.getElementById('form-status');
+ status.dataset.state='error';
+ status.textContent='הפנייה עדיין לא נשלחה. יש למלא שם וטלפון תקין, ולוודא שכתובת הדוא״ל תקינה אם הוזנה.';
+},true);
 let submitting=false;
 contactForm.addEventListener('submit',async e=>{
  e.preventDefault();if(submitting)return;
@@ -31,7 +36,9 @@ contactForm.addEventListener('submit',async e=>{
  if(!contactForm.reportValidity())return;
  const data=new FormData(contactForm);data.set('name',name.value.trim());
  if(!String(data.get('email')||'').trim())data.delete('email');
- data.set('subject','פנייה מאתר אחוזת רכסים — '+data.get('interest'));
+ const reference=Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,6);
+ data.set('reference',reference);
+ data.set('subject','פנייה מאחוזת רכסים — '+name.value.trim().replace(/[\r\n]+/g,' ')+' — '+data.get('interest')+' ['+reference+']');
  submitting=true;button.disabled=true;contactForm.setAttribute('aria-busy','true');
  const original=button.innerHTML;button.textContent='שולחים…';status.textContent='שולחים את הפנייה, רגע בבקשה…';status.dataset.state='pending';
  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),25000);

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://huxhkuh.github.io/achozet-rachsim/sitemap.xml
