@@ -117,3 +117,16 @@ nav{font-size:15px;gap:20px}
 @media(max-width:760px){.hero-buttons{gap:20px}.hero-buttons .btn-split{padding:0}.hero-buttons .btn-line{padding:10px 0}.btn-split-label{padding:13px 17px}.btn-split-icon{width:48px}.btn-split:hover .btn-split-icon{width:48px}}
 @media(prefers-reduced-motion:reduce){.btn-split:hover .btn-split-icon{width:54px}.architect-arrow{transform:none!important}}
 @media(prefers-reduced-motion:reduce) and (max-width:760px){.btn-split:hover .btn-split-icon{width:48px}}
+
+
+/* Action colors drawn from the original red and gray logo. */
+:root{--brand-action:#b93032;--brand-action-dark:#942629}
+.btn{background:var(--brand-action);border-color:var(--brand-action)}
+.btn:hover{background:var(--brand-action-dark)}
+.hero-buttons .btn-split{background:var(--brand-action)}
+.hero-buttons .btn-split:hover{background:var(--brand-action-dark)}
+.btn-split-icon{background:#942629}.btn-split:hover .btn-split-icon{background:#792023}
+.hero-buttons .btn-line,.header-contact .btn-architect{color:var(--brand-action)}
+.header-contact .btn-architect:hover,.header-contact .btn-architect:focus-visible,.phone-icon:hover,.phone-icon:focus-visible{background:var(--brand-action);color:#fff}
+.phone-icon{border-color:var(--brand-action);color:var(--brand-action)}
+.project-open,.more-btn,.activity-text-link{color:var(--brand-action)}
